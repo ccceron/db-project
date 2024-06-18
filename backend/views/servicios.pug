@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-md-12
+        h2 Clientes
+        form(action='/servicios/search', method='GET')
+          .form-group
+            label(for='query') Buscar
+            input.form-control(type='text', nombre='query', placeholder='Buscar por nombre')
+          button.btn.btn-secondary(type='submit') Buscar
+        table.table.table-striped
+          thead
+            tr
+              th scode  
+              th fecha  
+              th hora 
+              th destino  
+              th orige 
+              th cantidadpaquetes
+              th tipotransporte 
+              th cemail
+          tbody
+            each item in data
+              tr
+                td= item.clienteid 
+                td= item.nombre 
+                td= item.dirección
+                td= item.teléfono
+                td= item.ciudad 
+                td= item.email 
+                td= item.tipo
+                td
+                  form(action=`/servicios/delete/${item.id}`, method='POST', style='display:inline')
+                    button.btn.btn-danger(type='submit') Eliminar
