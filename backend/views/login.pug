@@ -1,0 +1,13 @@
+extends layout 
+
+block content 
+    .container 
+        .row.justify-content-center 
+            .col-md-6 
+                h2.text-center Iniciar sesión 
+                form(method='POST', action='/login')
+                    .form-group 
+                        label(for='username') Nombre de usuario 
+                        input.form-control(type='text', name='username', id='username', required= true)
+                    .form-group 
+                        
